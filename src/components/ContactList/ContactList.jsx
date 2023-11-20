@@ -1,8 +1,8 @@
 import {ImBin} from "react-icons/im"
 import { Item, List, Button } from "./ContactList.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilter, selectVisibleContacts } from "redux/selectors";
-import { deleteContacts } from "redux/operations";
+import { selectFilter, selectVisibleContacts } from "redux/contacts/selectors";
+import { deleteContacts } from "redux/contacts/operations";
 
 const ContactList = () => {
     const filteredContacts = useSelector(selectVisibleContacts);
