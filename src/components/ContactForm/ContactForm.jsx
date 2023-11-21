@@ -14,7 +14,6 @@ const schema = Yup.object().shape({
 })
 
 const ContactForm = () => {
-  
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
 
@@ -32,16 +31,15 @@ const ContactForm = () => {
             }
         dispatch(
             addContacts({ 
-                
                 name: values.name,
                 phone: values.number,
-                
             })
         );
         resetForm();
     };
 
     return (
+      <>
         <Formik
             initialValues={initialValues}
             validationSchema={schema}
@@ -65,6 +63,7 @@ const ContactForm = () => {
                         Add Contact</Button>
             </StyledForm>
         </Formik>
+      </>
     );
 }
 

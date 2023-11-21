@@ -12,6 +12,13 @@ export const List = styled.ul`
   list-style: none;
 `;
 
+export const NoContact = styled.span`
+  text-align: center;
+  font-size: 20px;
+  color: #777777;
+  margin-top: 10px;
+`;
+
 export const Item = styled.li`
   background-color: #ffffff;
   border: 4px solid #2450DB ;
