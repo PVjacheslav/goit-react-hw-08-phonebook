@@ -2,7 +2,7 @@ import { Container, SubTitle, Title } from './App.styled';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import {
@@ -11,40 +11,39 @@ import {
   selectIsLoading,
 } from 'redux/contacts/selectors';
 import { Dna } from 'react-loader-spinner';
+import { useAuth } from 'hooks/useAuth';
+import { refreshUser } from 'redux/auth/operations';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from 'components/Layout/Layout';
 
 const spinnerStyle = {
   padding: '12px 64px',
   position: 'absolute',
 };
 
+const Home = lazy(() => import('pages/Home/Home'));
+const Register = lazy(() => import('pages/Register/Register'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Contacts = lazy(() => import('pages/Contacts/ContactPage'));
+
 const App = () => {
-  const contacts = useSelector(selectContacts);
-  const error = useSelector(selectError);
-  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <p>User update...</p>
+  ) : (
     <Container>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <SubTitle>Contacts</SubTitle>
-      <Filter />
-      {isLoading && (
-        <Dna
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="dna-loading"
-          wrapperStyle={{ spinnerStyle }}
-          wrapperClass="dna-wrapper"
-        />
-      )}
-      {error && <b>{error}</b>}
-      {contacts.length !== 0 && <ContactList />}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/register" />
+        </Route>
+      </Routes>
     </Container>
   );
 };

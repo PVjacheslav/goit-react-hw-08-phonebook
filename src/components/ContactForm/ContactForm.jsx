@@ -45,16 +45,16 @@ const ContactForm = () => {
             validationSchema={schema}
             onSubmit={handleSubmit}
         >
-            <StyledForm autoComplete='off'>
-                <Label htmlFor='name'>
+            <StyledForm autoComplete="off">
+                <Label htmlFor="name">
                     Name
                         <StyledField type="text" name="name" placeholder="Rosie Simpson" />
                         <ErrMsg name="name" />
                 </Label>
 
-                <Label htmlFor='number'>
+                <Label htmlFor="number">
                     Number
-                        <StyledField type='tel' name="number" placeholder="459-12-56" required />
+                        <StyledField type="tel" name="number" placeholder="459-12-56" />
                         <ErrMsg name="number" />
                 </Label>
 
