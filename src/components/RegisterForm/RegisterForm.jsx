@@ -34,7 +34,7 @@ export const RegisterForm = () => {
             >
                 <Form autoComplete="off">
                     <Label htmlFor="username">
-                        Uresname
+                        Username
                         <Input
                             type="text"
                             name="username"
