@@ -1,8 +1,8 @@
-import { ErrorMessage, Formik } from 'formik/dist';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { userRegister } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import { Button, Form, Input, Label } from './RegisterForm.styled';
+import { Button, ErrMsg, Label, StyledField, StyledForm } from './RegisterForm.styled';
 
 const initialValues = { username: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -32,38 +32,38 @@ export const RegisterForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                <Form autoComplete="off">
+                <StyledForm autoComplete="off">
                     <Label htmlFor="username">
                         Username
-                        <Input
+                        <StyledField
                             type="text"
                             name="username"
                             required
                         />
-                        <ErrorMessage name="username" />
+                        <ErrMsg name="username" />
                     </Label>
                     <Label htmlFor="email">
                         Email
-                        <Input
+                        <StyledField
                             type="email"
                             name="email"
                             required
                         />
-                        <ErrorMessage name="email" />
+                        <ErrMsg name="email" />
                     </Label>
                     <Label htmlFor="password">
                         Password
-                        <Input
+                        <StyledField
                             type="password"
                             name="password"
                             required
                         />
-                        <ErrorMessage name="password" />
+                        <ErrMsg name="password" />
                     </Label>
                     <Button type="submit">
                         Register
                     </Button>
-                </Form>
+                </StyledForm>
             </Formik>
         </>
     );

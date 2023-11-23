@@ -1,8 +1,8 @@
-import { ErrorMessage, Formik } from 'formik/dist';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { userLogin } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import { Button, Form, Input, Label } from './LoginForm.styled';
+import { Button, ErrMsg, Label, StyledField, StyledForm } from './LoginForm.styled';
 
 const initialValues = { email: '', password: '' };
 const schema = Yup.object().shape({
@@ -30,29 +30,29 @@ export const LoginForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}>
                 
-                <Form autoComplete="off">
+                <StyledForm autoComplete="off">
                     <Label htmlFor="email">
                         Email
-                        <Input
+                        <StyledField
                             type="email"
                             name="email"
                             required
                         />
-                        <ErrorMessage name="email"/>
+                        <ErrMsg name="email"/>
                     </Label>
                     <Label htmlFor="password">
                         Password
-                        <Input
+                        <StyledField
                             type="password"
                             name="password"
                             required
                         />
-                        <ErrorMessage name="password"/>
+                        <ErrMsg name="password"/>
                     </Label>
                     <Button type="submit">
                         Log In
                     </Button>
-                </Form>
+                </StyledForm>
             </Formik>
         </>
     )
