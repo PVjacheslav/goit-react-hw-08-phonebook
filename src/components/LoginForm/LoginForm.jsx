@@ -6,8 +6,8 @@ import { Button, Form, Input, Label } from './LoginForm.styled';
 
 const initialValues = { email: '', password: '' };
 const schema = Yup.object().shape({
-    email: Yup.string().email().required("This field is required!"),
-    password: Yup.string().min(7, 'Too short password!').required("This field is required!"),
+    email: Yup.string().email(),
+    password: Yup.string().min(7, 'Too short password!'),
 });
 
 export const LoginForm = () => {
@@ -36,6 +36,7 @@ export const LoginForm = () => {
                         <Input
                             type="email"
                             name="email"
+                            required
                         />
                         <ErrorMessage name="email"/>
                     </Label>
@@ -44,6 +45,7 @@ export const LoginForm = () => {
                         <Input
                             type="password"
                             name="password"
+                            required
                         />
                         <ErrorMessage name="password"/>
                     </Label>

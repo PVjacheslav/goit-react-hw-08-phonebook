@@ -7,7 +7,7 @@ export const Navigation = () => {
     return (
         <nav>
             <Link to="/">Home</Link>
-            {isLoggedIn && <Link to="/contacts">Contscts</Link>}{' '}
+            {isLoggedIn && <Link to="/contacts">Contscts</Link>}
         </nav>
     )
 }

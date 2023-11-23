@@ -6,9 +6,9 @@ import { Button, Form, Input, Label } from './RegisterForm.styled';
 
 const initialValues = { username: '', email: '', password: '' };
 const schema = Yup.object().shape({
-  username: Yup.string().required("This field is required!"),
-  email: Yup.string().email().required("This field is required!"),
-  password: Yup.string().min(7, 'Too short password!').required("This field is required!"),
+  username: Yup.string(),
+  email: Yup.string().email(),
+  password: Yup.string().min(7, 'Too short password!'),
 });
 
 export const RegisterForm = () => {
@@ -35,7 +35,11 @@ export const RegisterForm = () => {
                 <Form autoComplete="off">
                     <Label htmlFor="username">
                         Uresname
-                        <Input type="text" name="username" />
+                        <Input
+                            type="text"
+                            name="username"
+                            required
+                        />
                         <ErrorMessage name="username" />
                     </Label>
                     <Label htmlFor="email">
@@ -43,6 +47,7 @@ export const RegisterForm = () => {
                         <Input
                             type="email"
                             name="email"
+                            required
                         />
                         <ErrorMessage name="email" />
                     </Label>
@@ -51,6 +56,7 @@ export const RegisterForm = () => {
                         <Input
                             type="password"
                             name="password"
+                            required
                         />
                         <ErrorMessage name="password" />
                     </Label>

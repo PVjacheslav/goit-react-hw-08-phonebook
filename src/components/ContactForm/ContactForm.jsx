@@ -9,8 +9,8 @@ import Notiflix from 'notiflix';
 
 const initialValues = { name: '', number: '' };
 const schema = Yup.object().shape({
-    name:   Yup.string().min(2, "Too short!").required("This field is required!"),
-    number: Yup.number().required("This field is required!"),
+    name:   Yup.string().min(2, "Too short!"),
+    number: Yup.number(),
 })
 
 const ContactForm = () => {
@@ -48,13 +48,13 @@ const ContactForm = () => {
             <StyledForm autoComplete="off">
                 <Label htmlFor="name">
                     Name
-                        <StyledField type="text" name="name" placeholder="Rosie Simpson" />
+                        <StyledField type="text" name="name" required />
                         <ErrMsg name="name" />
                 </Label>
 
                 <Label htmlFor="number">
                     Number
-                        <StyledField type="tel" name="number" placeholder="459-12-56" />
+                        <StyledField type="tel" name="number" required />
                         <ErrMsg name="number" />
                 </Label>
 

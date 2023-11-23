@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { selectUser } from "redux/auth/selectors"
-import { Button, Wrapper } from "./UserMenu.styled";
+import { Button, Text, Wrapper } from "./UserMenu.styled";
 import { userLogout } from "redux/auth/operations";
 
 export const UserMenu = () => {

@@ -21,7 +21,7 @@ const ContactList = () => {
                 <> 
                 {filteredContacts.map(({ id, name, phone }) => (
                     <Item key={id}>
-                        <BiSolidContact />
+                        <BiSolidContact size={25}/>
                         {name} : {phone}
                         {<Button
                             type="button"
