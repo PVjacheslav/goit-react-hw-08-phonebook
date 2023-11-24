@@ -7,5 +7,5 @@ export const Header = styled.header`
   margin: 0 auto 20px auto;
   border: 4px solid #2450DB;
   background-color: #F0F011;
-  width: 640px;
+  min-width: 320px;
 `;

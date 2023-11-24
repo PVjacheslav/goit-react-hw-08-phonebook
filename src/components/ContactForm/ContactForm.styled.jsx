@@ -6,9 +6,11 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   width: 400px;
   padding: 12px;
+  margin: auto;
   background-color: #F0F011;
   border: 4px solid #2450DB;
   border-radius: 4px;
+  
 `;
 
 export const StyledField = styled(Field)`

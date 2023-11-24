@@ -19,10 +19,10 @@ const ContactList = () => {
                 </NoContact>
             ) : (
                 <> 
-                {filteredContacts.map(({ id, name, phone }) => (
+                {filteredContacts.map(({ id, name, number }) => (
                     <Item key={id}>
-                        <BiSolidContact size={25}/>
-                        {name} : {phone}
+                        <BiSolidContact fill="#2450DB" size={25}/>
+                        {name} : {number}
                         {<Button
                             type="button"
                             name="delete"

@@ -32,7 +32,7 @@ const ContactForm = () => {
         dispatch(
             addContacts({ 
                 name: values.name,
-                phone: values.number,
+                number: values.number,
             })
         );
         resetForm();
@@ -59,7 +59,7 @@ const ContactForm = () => {
                 </Label>
 
                     <Button type="submit">
-                        <ImPlus fill="#2450DB" width="20" height="20"/>
+                        <ImPlus fill="#2450DB" width="12" height="12"/>
                         Add Contact</Button>
             </StyledForm>
         </Formik>

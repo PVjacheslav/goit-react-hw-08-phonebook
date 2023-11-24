@@ -18,7 +18,7 @@ export default function Tasks() {
         <>
             <title>Your contacts</title>
             <ContactForm />
-            <div>{isLoading && <Loader />}</div>{' '}
+            <div>{isLoading && <Loader />}</div>
             <ContactList/>
         </>
     );
